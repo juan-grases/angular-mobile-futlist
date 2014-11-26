@@ -1,0 +1,15 @@
+<div class="scrollable ng-scope" ng-controller="SportCenterListCtrl">
+	<div class="scrollable-content overthrow">
+		<div class="list-group" ng-repeat="sc in list">
+
+				<a class= "list-group-item ng-scope ng-binding" ng-href='/sportcenters/{{sc.id}}'>
+					<div>
+						<p>Nombre:{{ sc.nombreEst}}</p>
+						<p>Direccion:{{ sc.direccion}}</p>
+					</div>
+	
+				</a>
+
+		</div>
+	</div>
+</div>	
