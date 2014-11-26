@@ -1,15 +1,24 @@
 <div class="scrollable ng-scope" ng-controller="SportCenterListCtrl">
 	<div class="scrollable-content overthrow">
 		<div class="list-group" ng-repeat="sc in list">
-
-				<a class= "list-group-item ng-scope ng-binding" ng-href='/sportcenters/{{sc.id}}'>
-					<div>
-						<p>Nombre:{{ sc.nombreEst}}</p>
-						<p>Direccion:{{ sc.direccion}}</p>
+			<div class='container list-group-item'>
+				<a ng-href='/sportcenters/{{sc.id}}'>
+					<div class='row'>
+					
+					
+						<div class = 'col-xs-4'>
+							<img class = 'sport-center-img img-responsive' ng-src={{sc.gravatarUrl}}>
+						</div>
+						<div class = 'col-xs-8'>
+							<p>Nombre:{{ sc.nombreEst}}</p>
+							<p>Horario: {{sc.horario}}</p>
+							<p>Direccion:{{ sc.direccion}}, {{sc.canton}} {{sc.provincia}}</p>
+							<p>Cantidad de canchas: {{sc.qtyCanchas}}</p>
+							<p>Telefono: {{sc.telefono1}}</p>
+						</div>
 					</div>
-	
-				</a>
-
+				</a>			
+			</div>
 		</div>
 	</div>
 </div>	
