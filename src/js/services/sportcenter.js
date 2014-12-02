@@ -11,7 +11,6 @@ var services = angular.module('FutlistMobile.services', [])
 			},
 			games: function(sportCtrId, fieldId, params) {
 				params = params || {};
-				console.log(params);
 				return $http.get(url + '/establecimientos/' + sportCtrId + '/canchas/' + fieldId + '/juegos.json', {params: params});
 			}
 		}
@@ -36,7 +35,6 @@ var services = angular.module('FutlistMobile.services', [])
 					for (var i = 0; i < list.length; i++) {
 						list[i].games = games[i].data;
 					}
-					console.log(list);
 					return list;
 				});
 			}

@@ -17,18 +17,20 @@ angular.module('FutlistMobile.controllers.Main', [])
 .controller('GamesListCtrl', function($scope, $q, fieldList, futlistData){
 	$scope.list = fieldList;
 	$scope.list[0].default = 'active';
-	$scope.todayDate = new Date();
 	$scope.currentDate = new Date();
+	$scope.todayDate = new Date();
+	$scope.isToday = true;
 
 	$scope.goToNextDay = function(){
 		$scope.currentDate = addDays($scope.currentDate, 1);
-		console.log(format($scope.currentDate));
+		$scope.isToday = false;
 		updateGames();
 	}
 
 	$scope.goToPrevDay = function(){
 		$scope.currentDate = addDays($scope.currentDate, -1);
-		console.log(format($scope.currentDate));
+		if($scope.currentDate <= $scope.todayDate)
+			$scope.isToday = true;
 		updateGames();
 	}
 
@@ -43,7 +45,6 @@ angular.module('FutlistMobile.controllers.Main', [])
 			for (var i = 0; i < $scope.list.length; i++) {
 				$scope.list[i].games = games[i].data;
 			}
-			console.log($scope.list);
 		});
 		
 	}

@@ -3,8 +3,12 @@
 		<div class="tab-pane" active-class="active" id="cancha{{field.numero}}" ng-repeat="field in list" exclusion-group="myTabs" toggleable ng-attr-default="{{field.default}}">
 			<div class="scrollable">
 				<div class="scrollable-content" id='game-list'>
-					<a href="" ng-click="goToPrevDay()"><i class="fa fa-arrow-circle-left fa-3x"></i></a>
-					<a href="" ng-click="goToNextDay()"><i class="fa fa-arrow-circle-right fa-3x"></i></a>
+					<button ng-click="goToPrevDay()" ng-disabled="isToday">
+						<i class="fa fa-arrow-circle-left fa-3x"></i>
+					</button>
+					<button href="" ng-click="goToNextDay()">
+						<i class="fa fa-arrow-circle-right fa-3x"></i>
+					</button>
 					 <div class="list-group">
 						<div class='list-group-item' ng-repeat="game in field.games" ng-class = "{'available': game.estado == 'Cancha Disponible', 'booked': game.estado == 'Reservado', 'challenge': game.estado == 'Buscando reto'}">
 							<ft-game info='game'></ft-game>		
