@@ -8,6 +8,7 @@
     "angular-touch": "1.x",
     "mobile-angular-ui": "~1.1.0-beta.29",
     "font-awesome": "4.x",
-    "bootstrap": "3.2.0"
+    "bootstrap": "3.2.0",
+    "moment": "~2.8.4"
   }
 }

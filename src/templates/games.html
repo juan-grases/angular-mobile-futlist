@@ -1,17 +1,23 @@
-<div class="scrollable ng-scope">
-	<div class="scrollable-content overthrow">
-		<div class="list-group">
-			<div class='container list-group-item' ng-repeat="game in list">
-				<a>
-					<div class='row'>				
-						<div class = 'col-xs-2'>
-						</div>
-						<div class = 'col-xs-10'>
-							{{game.hour}}:00 - {{game.hour+1}}:00
+
+	<div class="tab-content">	
+		<div class="tab-pane" active-class="active" id="cancha{{field.numero}}" ng-repeat="field in list" exclusion-group="myTabs" toggleable ng-attr-default="{{field.default}}">
+			<div class="scrollable">
+				<div class="scrollable-content" id='game-list'>
+					<a href="" ng-click="goToPrevDay()"><i class="fa fa-arrow-circle-left fa-3x"></i></a>
+					<a href="" ng-click="goToNextDay()"><i class="fa fa-arrow-circle-right fa-3x"></i></a>
+					 <div class="list-group">
+						<div class='list-group-item' ng-repeat="game in field.games" ng-class = "{'available': game.estado == 'Cancha Disponible', 'booked': game.estado == 'Reservado', 'challenge': game.estado == 'Buscando reto'}">
+							<ft-game info='game'></ft-game>		
 						</div>
 					</div>
-				</a>			
+				</div>
 			</div>
 		</div>
 	</div>
-</div>	
+
+	
+	<div class="btn-group justified nav-tabs field-tabs">
+	    <a class="btn btn-default"  ng-repeat="field in list" href="#cancha{{field.numero}}" toggle="on" active-class="active">Cancha {{field.numero}}
+	    </a>       
+	</div>
+
